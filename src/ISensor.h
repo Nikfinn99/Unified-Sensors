@@ -11,12 +11,12 @@ private:
 
 protected:
   /**
-     * publish method for sensor measurements
-     * ensures that client has been initialized
-     * 
-     * @param topic sub_topic for mqtt message
-     * @param message sensor measurement to publish
-    */
+   * publish method for sensor measurements
+   * ensures that client has been initialized
+   * 
+   * @param topic sub_topic for mqtt message
+   * @param message sensor measurement to publish
+  */
   ISensor &publish(const String &p_topic, const String &p_message)
   {
     //check if mqtt_client has been initialized
@@ -29,9 +29,9 @@ protected:
   }
 
   /**
-     * interface method for sensor measurement
-     * only for use inside class
-    */
+   * interface method for sensor measurement
+   * only for use inside class
+  */
   virtual void measure() = 0;
 
 public:
@@ -40,11 +40,11 @@ public:
   ~ISensor() {}
 
   /**
-     * attach existing MQTT_Client to sensor
-     * enables publishing of messages
-     * 
-     * @param client mqtt_client to attach to sensor
-    */
+   * attach existing MQTT_Client to sensor
+   * enables publishing of messages
+   * 
+   * @param client mqtt_client to attach to sensor
+  */
   ISensor &setClient(MQTT_Client *p_client)
   {
     m_mqtt_client = p_client;
@@ -52,10 +52,10 @@ public:
   }
 
   /**
-     * update method for sensor
-     * this will call the overridden measurement function every interval
-     * call this method regulary to ensure correct functionality
-    */
+   * update method for sensor
+   * this will call the overridden measurement function every interval
+   * call this method regulary to ensure correct functionality
+  */
   ISensor &update()
   {
     // check if interval has expired
