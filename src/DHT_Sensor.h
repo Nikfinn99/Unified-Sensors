@@ -3,22 +3,21 @@
 #include "ISensor.h"
 #include <DHT.h>
 
-#ifndef DHT_MEAS_INTERVAL
-#define DHT_MEAS_INTERVAL 10 * 60 * 1000
-#endif
-
 class DHT_Sensor : public ISensor
 {
   private:
     DHT *m_sensor;
 
   public:
-    DHT_Sensor(int p_pin, int p_type, unsigned long p_interval = DHT_MEAS_INTERVAL) : ISensor(p_interval)
+    DHT_Sensor(int p_pin, int p_type) : DHT_Sensor(p_pin, p_type, 10 * MINUTES) {}
+
+    DHT_Sensor(int p_pin, int p_type, unsigned long p_interval) : ISensor(p_interval)
     {
         // create new dht object attached to corresponding pins
         m_sensor = new DHT(p_pin, p_type);
         m_sensor->begin();
     }
+
     ~DHT_Sensor()
     {
         // cleanup
