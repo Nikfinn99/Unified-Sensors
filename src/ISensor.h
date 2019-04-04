@@ -3,6 +3,11 @@
 #include <Arduino.h>
 #include <MQTT_Client.h>
 
+#define SECONDS 1000
+#define MINUTES 60 * SECONDS
+#define HOURS 60 * MINUTES
+#define DAYS 24 * HOURS
+
 class ISensor
 {
 private:
