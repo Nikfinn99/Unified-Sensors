@@ -16,7 +16,7 @@ class Button_Sensor : public ISensor
 
     ~Button_Sensor() {}
 
-    virtual void measure()
+    virtual void measure() override
     {
         m_btn.update();
 
